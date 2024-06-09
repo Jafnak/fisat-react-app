@@ -1,7 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Nav from './Nav'
 
 const Add = () => {
+const [data,changeData]=useState(
+    {
+    
+        "firstname":"",
+        "lastname": "",
+        "college": "",
+        "dob": "",
+        "course": "",
+        "mobile": "",
+        "email": "",
+        "address": ""
+        
+    }
+)
+const inputHandler =(event)=>{
+    changeData({...data,[event.target.name]:event.target.value})
+}
+
+const readValue=()=>{
+console.log(data)
+}
     return (
         <div>
 <Nav/>
@@ -9,47 +30,46 @@ const Add = () => {
                 <div className="row">
                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                         <div className="row g-3">
+                           
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                 <label htmlFor="" className="form-label">First Name</label>
-                                <input type="text" className="form-control" />
+                                <input type="text" className="form-control" name="firstname" value={data.firstname} onChange={inputHandler} />
                             </div>
 
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                 <label htmlFor="" className="form-label">Last Name</label>
-                                <input type="text" className="form-control" />
+                                <input type="text" className="form-control" name='lastname' value={data.lastname} onChange={inputHandler} />
                             </div>
 
                             <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                 <label htmlFor="" className="form-label">College</label>
-                                <textarea name="" id="" className="form-control"></textarea>
+                                <textarea  id="" className="form-control" name="college" value={data.college} onChange={inputHandler} ></textarea>
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                 <label htmlFor="" className="form-label">DOB</label>
-                                <input type="date" name="" id="" className="form-control" />
+                                <input type="date"  id="" className="form-control" name='dob' value={data.dob}  onChange={inputHandler}/>
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">Course</label>
-                                <select name="" id="" className="form-control">
-                                    <option value="">MCA</option>
-                                    <option value="">MBA</option>
-                                    <option value="">BTECH</option>
-                                    <option value="">MTECH</option>
-                                </select>
+                               <select  id="" className="form-control" name='course' value={data.course} onChange={inputHandler}>
+                                <option value="">MCA</option>
+                                <option value="">MBA</option>
+                                <option value="">BTECH</option>
+                               </select>
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                 <label htmlFor="" className="form-label">Mobile</label>
-                                <input type="text" className="form-control" />
+                                <input type="text" className="form-control" name='mobile' value={data.mobile} onChange={inputHandler}/>
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                                 <label htmlFor="" className="form-label">email</label>
-                                <input type="text" className="form-control" />
+                                <input type="text" className="form-control" name='email' value={data.email} onChange={inputHandler} />
                             </div>
                             <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                 <label htmlFor="" className="form-label">Address</label>
-                                <textarea name="" id="" className="form-control"></textarea>
+                                <textarea  id="" className="form-control" name='address' value={data.address} onChange={inputHandler}></textarea>
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <button className="btn btn-primary">Submit</button>
+                                <button className="btn btn-primary" onClick={readValue}>Submit</button>
                             </div>
                         </div>
                     </div>
