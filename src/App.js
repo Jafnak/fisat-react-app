@@ -3,6 +3,7 @@ import './App.css';
 import Add from './components/Add';
 import Search from './components/Search';
 import ViewAll from './components/ViewAll';
+import Nav from './components/Nav';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
      <Add/>
      <Search/>
      <ViewAll/>
+     
     </div>
   );
 }
