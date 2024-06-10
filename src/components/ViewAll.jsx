@@ -6,11 +6,18 @@ const ViewAll = () => {
     const [fisatdata,setData]=useState([])
     const fetchData=()=>
         [
-            axios.get("https://anishpdm.github.io/dummy-api-new/student.json").then(
+            axios.get("https://courseapplogix.onrender.com/getdata").then(
                 (response)=>{
                     setData(response.data)
                 }
-            ).catch().finally()
+            ).catch(
+
+              (error)=>{
+                console.log(error.message)
+                alert(error.message)
+              }
+
+            ).finally()
         ]
 useEffect(()=>{fetchData()},[])
 
@@ -24,7 +31,7 @@ useEffect(()=>{fetchData()},[])
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Id</th>
+      
       <th scope="col">First name</th>
       <th scope="col">Last name</th>
       <th scope="col">College</th>
@@ -40,8 +47,7 @@ useEffect(()=>{fetchData()},[])
  
  {fisatdata.map(
     (value,index)=>{
-    return   <tr>  <td scope="row">{value._id}</td>
-        <td>{value.firstname}</td>
+    return   <tr>  <td scope="row">{value.firstname}</td>
         <td>{value.lastname}</td>
         <td>{value.college}</td>
         <td>{value.dob}</td>
